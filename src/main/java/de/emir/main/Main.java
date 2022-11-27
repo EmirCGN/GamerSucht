@@ -55,7 +55,7 @@ public class Main {
         getMySQL().update("CREATE TABLE IF NOT EXISTS Warns(ID BIGINT, Reason VARCHAR(100), WFrom BIGINT, Timestamp BIGINT, Confirmed INT)");
         getMySQL().update("CREATE TABLE IF NOT EXISTS Levels(ID BIGINT, TotalXP BIGINT, XP INT, Level INT)");
         System.out.println("Lädt... (50%)");
-        JDABuilder jdaBuilder = JDABuilder.createDefault("****").enableIntents(GatewayIntent.getIntents(GatewayIntent.ALL_INTENTS)).setActivity(Activity.watching("im Chat das keine Verbotene Sachen geschrieben werden :)")).setStatus(OnlineStatus.ONLINE).addEventListeners(new Object[]{new CommandListener(this)}).setMemberCachePolicy(MemberCachePolicy.ALL)
+        JDABuilder jdaBuilder = JDABuilder.createDefault("NjE5ODg3NDYwMzMxMTU5NTYw.Gs5W9M._Iq7jPPVP1EAb7_QwsHbD6F6ZJ_KMU4n_6T3hI").enableIntents(GatewayIntent.getIntents(GatewayIntent.ALL_INTENTS)).setActivity(Activity.watching("im Chat das keine Verbotene Sachen geschrieben werden :)")).setStatus(OnlineStatus.ONLINE).addEventListeners(new Object[]{new CommandListener(this)}).setMemberCachePolicy(MemberCachePolicy.ALL)
                 .addEventListeners(new Object[]{new CreatePlayerListener(this)})
                 .addEventListeners(new Object[]{new TeamListener(this)})
                 .addEventListeners(new Object[]{new JoinListener(this)})
@@ -70,15 +70,23 @@ public class Main {
                 .addEventListeners(new Object[]{new HeyListener(this)})
                 .addEventListeners(new Object[]{new voiceListener(this)})
                 .addEventListeners(new Object[]{new ChatFilter(this)})
-                .addEventListeners(new Object[]{new ExceptionListener(this)})
-                .addEventListeners(new Object[]{new readyListener(this)})
-                .addEventListeners(new Object[]{new reconnectlistener(this)});
+                .addEventListeners(new Object[]{new AutoChannelListener(this)})
+                .addEventListeners(new Object[]{new ExceptionListener(this)});
         System.out.println("Lädt... (70%)");
         try {
             jda = jdaBuilder.build();
             jda.awaitReady();
             System.out.println("Lädt... (100%)");
+            Thread.sleep(2000);
             System.out.println("Erfolgreich geladen!");
+            System.out.println("   _____                           _____            _     _   \n" +
+                    "  / ____|                         / ____|          | |   | |  \n" +
+                    " | |  __  __ _ _ __ ___   ___ _ _| (___  _   _  ___| |__ | |_ \n" +
+                    " | | |_ |/ _` | '_ ` _ \\ / _ \\ '__\\___ \\| | | |/ __| '_ \\| __|\n" +
+                    " | |__| | (_| | | | | | |  __/ |  ____) | |_| | (__| | | | |_ \n" +
+                    "  \\_____|\\__,_|_| |_| |_|\\___|_| |_____/ \\__,_|\\___|_| |_|\\__|\n" +
+                    "                                                              \n" +
+                    "                                                              ");
         } catch (LoginException | IllegalArgumentException | InterruptedException e) {
             e.printStackTrace();
             System.out.println("Konnte nicht geladen werden!");
