@@ -55,7 +55,7 @@ public class Main {
         getMySQL().update("CREATE TABLE IF NOT EXISTS Warns(ID BIGINT, Reason VARCHAR(100), WFrom BIGINT, Timestamp BIGINT, Confirmed INT)");
         getMySQL().update("CREATE TABLE IF NOT EXISTS Levels(ID BIGINT, TotalXP BIGINT, XP INT, Level INT)");
         System.out.println("Lädt... (50%)");
-        JDABuilder jdaBuilder = JDABuilder.createDefault("NjE5ODg3NDYwMzMxMTU5NTYw.Gs5W9M._Iq7jPPVP1EAb7_QwsHbD6F6ZJ_KMU4n_6T3hI").enableIntents(GatewayIntent.getIntents(GatewayIntent.ALL_INTENTS)).setActivity(Activity.watching("im Chat das keine Verbotene Sachen geschrieben werden :)")).setStatus(OnlineStatus.ONLINE).addEventListeners(new Object[]{new CommandListener(this)}).setMemberCachePolicy(MemberCachePolicy.ALL)
+        JDABuilder jdaBuilder = JDABuilder.createDefault("YOUR TOKEN").enableIntents(GatewayIntent.getIntents(GatewayIntent.ALL_INTENTS)).setActivity(Activity.watching("im Chat das keine Verbotene Sachen geschrieben werden :)")).setStatus(OnlineStatus.ONLINE).addEventListeners(new Object[]{new CommandListener(this)}).setMemberCachePolicy(MemberCachePolicy.ALL)
                 .addEventListeners(new Object[]{new CreatePlayerListener(this)})
                 .addEventListeners(new Object[]{new TeamListener(this)})
                 .addEventListeners(new Object[]{new JoinListener(this)})
